@@ -1,0 +1,26 @@
+{{- range .Values.projects }}
+{{- $projectNamePrefix :=  include "weblate-operator.fullname" $ -}}
+{{- $projectSlug :=  .slug -}}
+{{- range .components }}
+{{- $componentSlug :=  .slug -}}
+{{- $retentionPolicy :=  .translations.retentionPolicy -}}
+{{- range .translations.languageCodes }}
+
+---
+apiVersion: loktionovam.com/v1alpha1
+kind: WeblateTranslation
+metadata:
+  name: {{ include "weblate-operator.fullname" $ }}-{{ $projectSlug }}-{{ $componentSlug }}-{{ . }}
+  labels:
+    {{- include "weblate-operator.labels" $ | nindent 4 }}
+spec:
+  weblateTranslationRetentionPolicy:
+    whenDeleted: {{ $retentionPolicy | default "Retention" }}
+  weblateComponentName: {{ include "weblate-operator.fullname" $ }}-{{ $projectSlug }}-{{ $componentSlug }}
+  weblateTranslationConfiguration:
+    projectSlug: {{ $projectSlug }}
+    componentSlug: {{ $componentSlug }}
+    languageCode: {{ . }}
+{{- end }}
+{{- end }}
+{{- end }}

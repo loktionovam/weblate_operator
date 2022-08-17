@@ -1,0 +1,19 @@
+---
+apiVersion: loktionovam.com/v1alpha1
+kind: WeblateComponent
+metadata:
+  name: test-component
+spec:
+  weblateComponentRetentionPolicy:
+    whenDeleted: Delete
+  weblateProjectName: test-project
+  weblateComponentConfiguration:
+    name: test-component
+    slug: test-component
+    projectSlug: test-project
+    fileFormat: ts
+    fileMask: 'ts/*.ts'
+    repo: https://github.com/WeblateOrg/test
+    vcs: git
+    branch: main
+    newBase: 'ts/cs.ts'

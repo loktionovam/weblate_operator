@@ -1,0 +1,13 @@
+---
+apiVersion: loktionovam.com/v1alpha1
+kind: WeblateProject
+metadata:
+  name: weblate-project-example-1
+spec:
+  weblateProjectRetentionPolicy:
+    # use Retain here
+    whenDeleted: Delete
+  weblateProjectConfiguration:
+    name: weblate-project-example-1
+    slug: weblate-project-example
+    web: http://weblate.project.example

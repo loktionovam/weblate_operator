@@ -1,0 +1,13 @@
+---
+apiVersion: loktionovam.com/v1alpha1
+kind: WeblateTranslation
+metadata:
+  name: weblate-translation-de
+spec:
+  weblateTranslationRetentionPolicy:
+    whenDeleted: Delete
+  weblateComponentName: weblate-component-1
+  weblateTranslationConfiguration:
+    projectSlug: weblate-project-example
+    componentSlug: weblate-component-1
+    languageCode: de

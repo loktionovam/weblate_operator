@@ -1,0 +1,12 @@
+---
+apiVersion: loktionovam.com/v1alpha1
+kind: WeblateProject
+metadata:
+  name: test-project
+spec:
+  weblateProjectRetentionPolicy:
+    whenDeleted: Delete
+  weblateProjectConfiguration:
+    name: test-project
+    slug: test-project
+    web: http://weblate.project.test

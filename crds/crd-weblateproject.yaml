@@ -1,0 +1,52 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: weblateprojects.loktionovam.com
+spec:
+  scope: Namespaced
+  group: loktionovam.com
+  names:
+    kind: WeblateProject
+    listKind: WeblateProjectList
+    plural: weblateprojects
+    singular: weblateproject
+  versions:
+    - name: v1alpha1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              x-kubernetes-preserve-unknown-fields: true
+              properties:
+                weblateProjectRetentionPolicy:
+                  type: object
+                  properties:
+                    whenDeleted:
+                      # TODO: validate Retain/Delete
+                      type: string
+                weblateProjectConfiguration:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    slug:
+                      # TODO: create slug as an unchangable
+                      type: string
+                    web:
+                      type: string
+                  required:
+                    - name
+                    - slug
+                    - web
+            status:
+              type: object
+              x-kubernetes-preserve-unknown-fields: true
+              properties:
+                message:
+                  type: string
+

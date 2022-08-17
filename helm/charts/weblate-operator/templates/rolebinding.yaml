@@ -1,0 +1,15 @@
+{{- if .Values.rbac.create -}}
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ include "weblate-operator.fullname" . }}
+  labels:
+    {{- include "weblate-operator.labels" . | nindent 4 }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "weblate-operator.serviceAccountName" . }}
+roleRef:
+  kind: Role
+  name: {{ include "weblate-operator.fullname" . }}
+  apiGroup: rbac.authorization.k8s.io
+{{- end }}

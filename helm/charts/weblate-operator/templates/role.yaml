@@ -1,0 +1,17 @@
+{{- if .Values.rbac.create -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ include "weblate-operator.fullname" . }}
+  labels:
+    {{- include "weblate-operator.labels" . | nindent 4 }}
+rules:
+
+  - apiGroups: [loktionovam.com]
+    resources: [weblateprojects, weblatecomponents, weblatetranslations]
+    verbs: [get, list, watch, patch]
+
+  - apiGroups: [""]
+    resources: [events]
+    verbs: [create]
+{{- end }}

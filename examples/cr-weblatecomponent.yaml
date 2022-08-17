@@ -1,0 +1,22 @@
+---
+apiVersion: loktionovam.com/v1alpha1
+kind: WeblateComponent
+metadata:
+  name: weblate-component-1
+spec:
+  weblateComponentRetentionPolicy:
+    whenDeleted: Delete
+  # name of k8s WeblateProject resource which this component belongs to
+  weblateProjectName: weblate-project-example-1
+  weblateComponentConfiguration:
+    name: weblate-component-1
+    slug: weblate-component-1
+    projectSlug: weblate-project-example
+    fileFormat: ts
+    fileMask: 'ts/*.ts'
+    repo: https://github.com/WeblateOrg/test
+    vcs: git
+    branch: main
+    newBase: 'ts/cs.ts'
+    # newLang:
+    # template

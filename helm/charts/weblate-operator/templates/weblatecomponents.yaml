@@ -1,0 +1,30 @@
+{{- range .Values.projects }}
+{{- $projectNamePrefix :=  include "weblate-operator.fullname" $ -}}
+{{- $projectSlug :=  .slug -}}
+{{- range .components }}
+---
+apiVersion: loktionovam.com/v1alpha1
+kind: WeblateComponent
+metadata:
+  name: {{ include "weblate-operator.fullname" $ }}-{{ $projectSlug }}-{{ .slug }}
+  labels:
+    {{- include "weblate-operator.labels" $ | nindent 4 }}
+spec:
+  weblateComponentRetentionPolicy:
+    whenDeleted: {{ .retentionPolicy | default "Retain" }}
+  # name of k8s WeblateProject resource which this component belongs to
+  weblateProjectName: {{ $projectNamePrefix }}-{{ $projectSlug }}
+  weblateComponentConfiguration:
+    name: {{ .name }}
+    slug: {{ .slug }}
+    projectSlug: {{ $projectSlug }}
+    fileFormat: {{ .fileFormat }}
+    fileMask: {{ .fileMask | quote }}
+    repo: {{ .repo }}
+    vcs: {{ .vcs | default "git" }}
+    branch: {{ .branch | default "main" }}
+    newBase: {{ .newBase | quote }}
+    # newLang:
+    # template
+{{- end }}
+{{- end }}

@@ -1,0 +1,4 @@
+kopf
+wlc~=1.12
+kubernetes
+requests~=2.26.0

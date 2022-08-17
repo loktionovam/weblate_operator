@@ -1,0 +1,16 @@
+{{- range .Values.projects }}
+---
+apiVersion: loktionovam.com/v1alpha1
+kind: WeblateProject
+metadata:
+  name: {{ include "weblate-operator.fullname" $ }}-{{ .slug }}
+  labels:
+    {{- include "weblate-operator.labels" $ | nindent 4 }}
+spec:
+  weblateProjectRetentionPolicy:
+    whenDeleted: {{ .retentionPolicy | default "Retain" }}
+  weblateProjectConfiguration:
+    name: {{ .name }}
+    slug: {{ .slug }}
+    web: {{ .web }}
+{{- end }}
