@@ -2,8 +2,7 @@
 
 [![weblate operator](https://github.com/loktionovam/weblate_operator/actions/workflows/ci.yml/badge.svg)](https://github.com/loktionovam/weblate_operator/actions/workflows/ci.yml)
 
-[![codecov](https://codecov.io/gh/loktionovam/weblate_operator/branch/main/graph/badge.svg?token=3OWCAKRWEA)](https://codecov.io/gh/loktionovam/weblate_operator)
-
+[![codecov](https://codecov.io/gh/loktionovam/weblate_operator/branch/master/graph/badge.svg?token=HUQLCJ17SL)](https://codecov.io/gh/loktionovam/weblate_operator)
 This is a Kubernetes Operator for the Weblate translation system.
 
 Weblate has a number of components (projects, components, translations) and this operator is designed to simplify creating and managing objects in the Weblate.
