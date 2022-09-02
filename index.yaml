@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  weblate-operator:
+  - apiVersion: v2
+    appVersion: v0.1.2
+    created: "2022-09-02T18:32:18.639278409Z"
+    description: A Helm chart for Kubernetes
+    digest: b4d89bfc98a7c932bcd00e8a914617e9ed8ecc0b2af088abae66341cdc0d30e8
+    name: weblate-operator
+    type: application
+    urls:
+    - https://github.com/loktionovam/weblate_operator/releases/download/weblate-operator-0.1.2/weblate-operator-0.1.2.tgz
+    version: 0.1.2
+generated: "2022-09-02T18:32:18.639288709Z"
