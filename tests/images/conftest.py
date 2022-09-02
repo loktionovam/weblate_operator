@@ -7,7 +7,7 @@ import os
 KUBEFILE = os.path.join(os.path.expanduser("~"), ".kube", "config")
 
 WEBLATE_OPERATOR_IMAGE_NAME = os.environ.get(
-    "WEBLATE_OPERATOR_IMAGE_NAME", "loktionovam/weblate_exporter"
+    "WEBLATE_OPERATOR_IMAGE_NAME", "loktionovam/weblate_operator"
 )
 WEBLATE_OPERATOR_IMAGE_TAG = os.environ.get("WEBLATE_OPERATOR_IMAGE_TAG", "dev")
 

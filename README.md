@@ -58,9 +58,15 @@ Supported versions:
     make test-images
     ```
 
-### Run the weblate_exporter
+### Run the weblate_operator
 
 #### Helm
+
+* Install custom resource definitions:
+
+  ```shell
+  kubectl apply -f crds
+  ```
 
 * Add weblate-operator helm repository:
 
@@ -87,10 +93,10 @@ Supported versions:
     --set config.weblateAPIUrl="http://weblate.example.com:8080/api/" \
     --set config.weblateAPIKey="secret_api_key"
 
-    helm test weblate-exporter
+    helm test weblate-operator
   ```
 
-## Developing and testing weblate exporter
+## Developing and testing weblate operator
 
 * Install prerequisites [as described here](#setup-an-environment-for-developing-and-testing) and activate python virtual environment
 * Install pre-commit hooks
@@ -101,9 +107,50 @@ Supported versions:
   pre-commit install-hooks
   ```
 
+* Install a k8s cluster:
+
+  ```shell
+  make create-cluster
+  ```
+
+* Install a weblate helm chart release:
+
+  ```shell
+  helm install --set siteDomain=weblate.default.svc.cluster.local --set adminUser=admin --set adminPassword=admin weblate weblate/weblate
+  ```
+
+* Obtain an API key in the weblate web interface:
+
+  ```shell
+  kubectl port-forward deploy/weblate 8080:8080`
+  # Get an API key here http://localhost:8080/
+  ```
+
+* Install custom resource definitions:
+
+  ```shell
+  kubectl apply -f crds
+  ```
+
+* Run the operator:
+
+  ```shell
+  export WEBLATE_API_URL=http://localhost:8080/api/
+  export WEBLATE_API_KEY=weblate-api-key-here
+  kopf run  --verbose -n default  weblate_operator/operator.py
+  ```
+
+* Install custom resource examples (a project, a component and translations):
+
+  ```shell
+  kubectl apply -f examples
+  ```
+
 * Format the code and run tests:
 
   ```shell
   make fmt
+  # tests automatically installs CRDs so delete it first
+  kubectl delete -f crds
   make test-apps
   ```
