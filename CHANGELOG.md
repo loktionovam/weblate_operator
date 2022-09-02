@@ -1,6 +1,13 @@
 # Changelog
 
 
+## v0.1.2 (2022-09-02)
+
+### Other
+
+* Fix codecov badge link. [Alexander Loktionov]
+
+
 ## v0.1.1 (2022-09-02)
 
 ### Other
