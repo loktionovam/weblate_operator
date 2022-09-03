@@ -1,0 +1,31 @@
+{{ template "chart.header" . }}
+{{ template "chart.deprecationWarning" . }}
+
+{{ template "chart.badgesSection" . }}
+
+{{ template "chart.description" . }}
+
+{{ template "chart.homepageLine" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+## TL;DR;
+
+```console
+$ helm repo add weblate-operator https://raw.githubusercontent.com/loktionovam/weblate_operator/gh-pages/
+$ helm repo update
+
+
+$ helm search repo --versions weblate-operator
+
+ NAME                                   CHART VERSION   APP VERSION     DESCRIPTION
+ weblate-exporter/weblate-operator      0.1.2           v0.1.2          Weblate Operator
+
+$  helm install weblate-exporter weblate-exporter/weblate-exporter \
+    --set config.weblateAPIUrl="http://weblate.example.com:8080/api/" \
+    --set config.weblateAPIKey="secret_api_key"
+```
+
+{{ template "chart.requirementsSection" . }}
+
+{{ template "chart.valuesSection" . }}

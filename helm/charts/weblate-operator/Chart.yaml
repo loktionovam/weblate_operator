@@ -1,6 +1,6 @@
 apiVersion: v2
 name: weblate-operator
-description: A Helm chart for Kubernetes
+description: Weblate Operator
 
 # A chart can be either an 'application' or a 'library' chart.
 #
