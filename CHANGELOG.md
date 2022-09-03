@@ -1,9 +1,25 @@
 # Changelog
 
 
+## v0.1.3 (2022-09-03)
+
+### Other
+
+* Merge pull request #1 from loktionovam/doc/how-to-use-operator. [Aleksandr Loktionov]
+
+  Add how-to use weblate-operator helm package in README.md
+
+* Add how-to use weblate-operator helm package in README.md. [Alexander Loktionov]
+
+  * Add installing Weblate Operator, how-to check in README
+  * Add README gotmpl for helm chart to autogenerate correct README.md
+
+
 ## v0.1.2 (2022-09-02)
 
 ### Other
+
+* Release v0.1.2. [Alexander Loktionov]
 
 * Fix codecov badge link. [Alexander Loktionov]
 
