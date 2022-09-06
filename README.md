@@ -14,6 +14,17 @@ Supported versions:
 
 * Weblate >= 4.9
 
+* [Weblate operator](#weblate-operator)
+  * [Building and running](#building-and-running)
+    * [Prerequisites](#prerequisites)
+    * [Setup an environment for developing and testing](#setup-an-environment-for-developing-and-testing)
+    * [Build and test a docker image](#build-and-test-a-docker-image)
+    * [Run the weblate_operator](#run-the-weblate_operator)
+      * [Installing Weblate and Weblate Operator CRDs](#installing-weblate-and-weblate-operator-crds)
+    * [Installing Weblate Operator](#installing-weblate-operator)
+    * [How-to check Weblate Operator](#how-to-check-weblate-operator)
+  * [Developing and testing weblate operator](#developing-and-testing-weblate-operator)
+
 ## Building and running
 
 ### Prerequisites

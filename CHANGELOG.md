@@ -5,6 +5,8 @@
 
 ### Other
 
+* Release v0.1.3. [Alexander Loktionov]
+
 * Merge pull request #1 from loktionovam/doc/how-to-use-operator. [Aleksandr Loktionov]
 
   Add how-to use weblate-operator helm package in README.md
